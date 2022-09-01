@@ -16,7 +16,7 @@ function Header() {
     },
   };
   const { currency, setCurrency } = CryptoState();
-  console.log(currency);
+  // console.log(currency);
   return (
     <AppBar color="transparent" position="static">
       <Container>

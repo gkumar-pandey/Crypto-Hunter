@@ -21,7 +21,7 @@ const theme = createTheme({
     mode: "dark",
   },
 });
-console.log(theme);
+// console.log(theme);
 function App() {
   return (
     <>
