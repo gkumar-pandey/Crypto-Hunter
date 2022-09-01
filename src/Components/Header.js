@@ -2,6 +2,7 @@ import React from "react";
 import { AppBar, MenuItem, Select, Toolbar, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import { useNavigate } from "react-router-dom";
+import { CryptoState } from "../CryptoContext";
 
 function Header() {
   const navigate = useNavigate();
@@ -14,6 +15,8 @@ function Header() {
       cursor: "pointer",
     },
   };
+  const { currency, setCurrency } = CryptoState();
+  console.log(currency);
   return (
     <AppBar color="transparent" position="static">
       <Container>
@@ -26,6 +29,8 @@ function Header() {
               height: "40px",
               width: "100px",
             }}
+            value={currency}
+            onChange={(e) => setCurrency(e.target.value)}
           >
             <MenuItem value={"USD"}>USD</MenuItem>
             <MenuItem value={"IN"}>IN</MenuItem>
