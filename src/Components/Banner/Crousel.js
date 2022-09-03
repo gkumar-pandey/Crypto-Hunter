@@ -22,6 +22,10 @@ const coustemStyle = {
   },
 };
 
+const numberWithCommas = (num) => {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 const Crousel = () => {
   const { currency, symbol } = CryptoState();
   const [trending, setTrending] = useState([]);
@@ -35,10 +39,6 @@ const Crousel = () => {
     fetchTrendingCoins();
   }, [currency]);
   // console.log();
-
-  function numberWithCommas(num) {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
 
   const items = trending.map((coin) => {
     let profit = coin.price_change_percentage_24h >= 0;
@@ -61,8 +61,6 @@ const Crousel = () => {
       </Link>
     );
   });
-
-  console.log(trending);
 
   const responsive = {
     0: {
@@ -92,3 +90,4 @@ const Crousel = () => {
 };
 
 export default Crousel;
+export { numberWithCommas };
