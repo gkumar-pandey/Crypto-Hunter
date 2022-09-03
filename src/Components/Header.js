@@ -33,7 +33,7 @@ function Header() {
             onChange={(e) => setCurrency(e.target.value)}
           >
             <MenuItem value={"USD"}>USD</MenuItem>
-            <MenuItem value={"IN"}>IN</MenuItem>
+            <MenuItem value={"INR"}>INR</MenuItem>
           </Select>
         </Toolbar>
       </Container>

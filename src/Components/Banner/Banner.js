@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
+import Crousel from "./Crousel";
 
 
 const coustemStyle = {
@@ -39,6 +40,7 @@ const Banner = () => {
                         Get all the info regarding your favorite Crypto currency
                     </Typography>
                 </div>
+                <Crousel />
             </Container>
         </div>
     </div>;

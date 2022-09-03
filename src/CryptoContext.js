@@ -8,8 +8,8 @@ function CryptoContext({ children }) {
   const [symbol, setSynbol] = useState("");
 
   useEffect(() => {
-    if (currency === "INR") setSynbol("");
-    else if (currency === "USC") setSynbol("$");
+    if (currency === "INR") setSynbol("₹");
+    else if (currency === "USD") setSynbol("$");
   }, [currency]);
 
   return (
