@@ -6,18 +6,15 @@ import AliceCarousel from "react-alice-carousel";
 import { Link } from "react-router-dom";
 const coustemStyle = {
   carousel: {
-    // border: "1px solid red",
     height: "50%",
     width: "100%",
     display: "flex",
     alignItem: "center",
   },
-  crouselItem: {},
+
   price: {
-    // textAlign: "center",
     fontWeight: "bold",
     color: "#fff",
-    // marginBottom: "15px",
     fontFamily: "Montserrat",
   },
 };

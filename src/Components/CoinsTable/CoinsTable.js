@@ -22,7 +22,6 @@ const coustemStyle = {
   row: {
     cursor: "pointer",
     backgroundColor: "#16171a",
-    // backgroundColor: "red",
     fontFamily: "Montserrat",
     "&:hover": {
       backgroundColor: "#131111",
@@ -70,10 +69,20 @@ const CoinsTable = () => {
     });
   };
 
+  // useEffect(() => {}, [search]);
+
   return (
     <div>
       <Container sx={{ textAlign: "center" }}>
-        <Typography variant="h4" sx={{ fontFamily: "Monsrrat" }}>
+        <Typography
+          variant="h4"
+          sx={{
+            fontFamily: "Montserrat",
+            textTransform: "capitalize",
+            margin: "10px 0",
+            fontWeight: "600",
+          }}
+        >
           CryptoCurrency Price on Market Cap
         </Typography>
         <TextField
