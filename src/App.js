@@ -1,12 +1,11 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import HomePage from "./Pages/HomePage";
-import CoinPage from "./Pages/CoinPage";
 import CssBaseline from "@mui/material/CssBaseline";
-import { Theme } from "@mui/material";
 import { ThemeProvider } from "@mui/system";
 import { createTheme } from "@mui/material";
+import CoinDetailPage from "./Pages/CoinDetailPage";
 const theme = createTheme({
   palette: {
     background: {
@@ -21,7 +20,6 @@ const theme = createTheme({
     mode: "dark",
   },
 });
-// console.log(theme);
 function App() {
   return (
     <>
@@ -31,7 +29,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/coin:id" element={<CoinPage />} />
+            <Route path="/coin/:id" element={<CoinDetailPage />} />
           </Routes>
         </Router>
       </ThemeProvider>

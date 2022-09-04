@@ -69,8 +69,6 @@ const CoinsTable = () => {
     });
   };
 
-  // useEffect(() => {}, [search]);
-
   return (
     <div>
       <Container sx={{ textAlign: "center" }}>
@@ -106,7 +104,8 @@ const CoinsTable = () => {
                           fontWeight: "700",
                           fontFamily: "Montserrat",
                         }}
-                        align={head == "coin" ? "" : "right"}
+                        align={head == "coin" ? "left" : "right"}
+                        key={head}
                       >
                         {head}
                       </TableCell>
@@ -117,13 +116,13 @@ const CoinsTable = () => {
               <TableBody>
                 {handleSearch()
                   .slice((page - 1) * 10, (page - 1) * 10 + 10)
-                  .map((row) => {
+                  .map((row, idx) => {
                     const profit = row.price_change_percentage_24h > 0;
                     return (
                       <TableRow
-                        onClick={() => navigate(`/coins/${row.id}`)}
+                        onClick={() => navigate(`/coin/${row.id}`)}
                         sx={coustemStyle.row}
-                        //   className="row"
+                        key={idx}
                       >
                         <TableCell component="th" scope="row">
                           <img src={row.image} style={coustemStyle.img} />
@@ -173,7 +172,7 @@ const CoinsTable = () => {
         )}
         <Pagination
           sx={coustemStyle.pagenation}
-          count={(handleSearch().length / 10).toFixed(0)}
+          count={Number((handleSearch().length / 10).toFixed(0))}
           onChange={(_, value) => {
             setPage(value);
             window.scroll(0, 450);

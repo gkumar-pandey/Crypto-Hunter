@@ -1,7 +1,7 @@
 const url = `https://pro-api.coingecko.com/api/v3/`;
 
 export const singleCoin = (id) => {
-  return `${url}coins/${id}`;
+  return `https://api.coingecko.com/api/v3/coins/${id}`;
 };
 
 export const CoinList = (currency) => {
