@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 import { Chart as ChartJS } from "chart.js/auto";
 
 const CoinInfo = ({ coin, isMobile }) => {
-  const [historicalData, setHistoricalData] = useState();
+  const [historicalData, setHistoricalData] = useState([]);
   const [days, setDays] = useState(1);
   const { currency } = CryptoState();
 
@@ -35,9 +35,25 @@ const CoinInfo = ({ coin, isMobile }) => {
     fetchHistoricalData();
   }, [currency, days]);
 
-  console.log(historicalData);
+  const labels = historicalData.map((coin) => {
+    let date = new Date(coin[0]);
+    let time =
+      date.getHours() > 12
+        ? `${date.getHours() - 12}:${date.getMinutes()} PM`
+        : `${date.getHours()}:${date.getMinutes()} AM`;
+    return days === 1 ? time : date.toLocaleDateString();
+  });
 
-  const labels = [];
+  const data = {
+    labels,
+    datasets: [
+      {
+        data: historicalData.map((coin) => coin[1]),
+        label: `Price ( Past ${days} Days ) in ${currency}`,
+        borderColor: "#EEBC1D",
+      },
+    ],
+  };
 
   return (
     <>
@@ -45,7 +61,9 @@ const CoinInfo = ({ coin, isMobile }) => {
         {!historicalData ? (
           <CircularProgress size={250} thickness={1} sx={{ color: "gold" }} />
         ) : (
-          <></>
+          <>
+            <Line data={data} />
+          </>
         )}
       </div>
     </>

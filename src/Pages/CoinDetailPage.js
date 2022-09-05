@@ -47,7 +47,9 @@ function CoinDetailPage() {
       paddingTop: 10,
       width: "100%",
     },
-    chart: {},
+    chart: {
+      width: isMobile ? "100%" : "70%",
+    },
   };
 
   const { id } = useParams();
@@ -61,8 +63,6 @@ function CoinDetailPage() {
   useEffect(() => {
     fetchSingleCoin();
   }, []);
-
-  console.log(coin);
 
   return (
     <>
