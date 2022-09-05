@@ -29,7 +29,7 @@ function CoinDetailPage() {
       marginTop: "20px",
       borderRight: "2px solid grey",
     },
-    chart: {},
+
     heading: {
       fontWeight: "bold",
       fontFamily: "Manserrat",
@@ -47,6 +47,7 @@ function CoinDetailPage() {
       paddingTop: 10,
       width: "100%",
     },
+    chart: {},
   };
 
   const { id } = useParams();
@@ -111,7 +112,7 @@ function CoinDetailPage() {
               </div>
             </div>
             <div style={coustemStyle.chart}>
-              <CoinInfo />
+              <CoinInfo coin={coin} isMobile={isMobile} />
             </div>
           </>
         )}
