@@ -71,7 +71,7 @@ const CoinsTable = () => {
 
   return (
     <div>
-      <Container sx={{ textAlign: "center" }}>
+      <Container sx={{ textAlign: "center", padding: "5px" }}>
         <Typography
           variant="h4"
           sx={{

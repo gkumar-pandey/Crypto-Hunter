@@ -6,7 +6,8 @@ import { HistoricalChart } from "../Config/Config";
 import { Line } from "react-chartjs-2";
 import { useParams } from "react-router-dom";
 import { Chart as ChartJS } from "chart.js/auto";
-
+import { chartDays } from "./Data";
+import SelectBtn from "./SelectBtn";
 const CoinInfo = ({ coin, isMobile }) => {
   const [historicalData, setHistoricalData] = useState([]);
   const [days, setDays] = useState(1);
@@ -23,6 +24,13 @@ const CoinInfo = ({ coin, isMobile }) => {
       marginTop: isMobile ? "0" : "25px",
       padding: isMobile ? "20px" : "40px",
       paddingTop: isMobile ? "0" : "40px",
+    },
+    btn: {
+      display: "flex",
+      marginTop: "20px",
+      justifyContent: "space-around",
+      width: "100%",
+      // border: "1px solid red",
     },
   };
 
@@ -54,6 +62,13 @@ const CoinInfo = ({ coin, isMobile }) => {
       },
     ],
   };
+  const options = {
+    elements: {
+      point: {
+        radius: 1,
+      },
+    },
+  };
 
   return (
     <>
@@ -62,7 +77,20 @@ const CoinInfo = ({ coin, isMobile }) => {
           <CircularProgress size={250} thickness={1} sx={{ color: "gold" }} />
         ) : (
           <>
-            <Line data={data} />
+            <Line data={data} options={options} />
+            <div style={coustemStyle.btn}>
+              {chartDays.map((day) => {
+                return (
+                  <SelectBtn
+                    key={day.value}
+                    onClick={() => setDays(day.value)}
+                    selected={day.value === days}
+                  >
+                    {day.label}
+                  </SelectBtn>
+                );
+              })}
+            </div>
           </>
         )}
       </div>

@@ -8,6 +8,7 @@ const coustemStyle = {
     backgroundImage: "url(./banner2.jpg)",
     height: "400px",
     width: "100%",
+    // border: "1px solid red",
   },
   bannerContent: {
     height: "100%",
@@ -15,6 +16,8 @@ const coustemStyle = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    // border: "1px solid red",
+    padding: "0",
   },
   tagline: {
     height: "40%",
@@ -22,6 +25,7 @@ const coustemStyle = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    // border: "1px solid red",
   },
 };
 const Banner = () => {
@@ -34,8 +38,8 @@ const Banner = () => {
               variant="h2"
               sx={{
                 fontWeight: "bold",
-                marginBottom: "15px",
                 fontFamily: "Montserrat",
+                fontSize: "3rem",
               }}
             >
               Crypto Hunter
